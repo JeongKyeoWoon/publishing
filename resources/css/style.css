@@ -1,29 +1,32 @@
+
+/* 레이아웃 */
 .container {position: relative; width: 1200px; margin: 0 auto;}
 
 /* 헤더 */
-header {}
-header .header {position: fixed; top: 0; width: 100%; z-index: 1000; background-color: white; border-bottom: 1px solid #dbdbdb;}
-header .header .container {display: flex;}
-header .header .container .header_title {padding-left: 30px; line-height: 100px;}
-header .header .container .header_menu {}
-header .header .container .header_menu ul {display: flex; width: 500px; justify-content: space-between;}
-header .header .container .header_menu ul li {margin: 0 20px; line-height: 100px; position: relative;}
-/* 메뉴 밑줄 효과 */
-header .header .container .header_menu ul li::after {
+#header {position: fixed; top: 0; width: 100%; z-index: 1000; background-color: white; border-bottom: 1px solid #dbdbdb;}
+.header {display: flex;}
+.header .header_title {padding: 0 30px; line-height: 100px; white-space: nowrap;}
+.header .header_menu {}
+.header .header_menu ul {display: flex; width: 500px; justify-content: space-between;}
+.header .header_menu ul li {margin: 0 20px; line-height: 100px; position: relative;}
+.header .header_menu ul li::after { /* 헤더 메뉴 밑줄 효과 */
 	content: '';
 	width: 0; height: 2px;
 	background-color: #25aad0;
 	transition: all .1s ease-out;
 	position: absolute; left: 0; bottom: 0;
 }
-header .header .container .header_menu ul li.active::after {width: 100%;}
+.header .header_menu ul li.active::after {width: 100%;}
 
-header .nav {position: fixed; top: 101px; width: 100%; z-index: 1000; background-color: white;}
-header .nav.off {display: none;}
-header .nav .container .nav_sub {margin-left: 370px; display: flex; padding: 15px 0;}
-/* header .nav .container .nav_sub ul {padding: 0 20px;} */
-header .nav .container .nav_sub ul li {padding: 10px 30px; text-align: center;}
-header .nav .container .nav_sub ul.active li a {color: #25aad0;} /* 네비 글자 색 변경 */
+/* 네비 */
+#nav {position: fixed; top: 101px; width: 100%; z-index: 1000; background-color: white;}
+#nav.off {display: none;}
+.nav {margin-left: 397px; display: flex; padding: 15px 0;}
+.nav ul:last-child {margin-left: -14px;}
+.nav ul li {padding: 10px 30px; text-align: center;}
+.nav ul.active li a {color: #25aad0;}
+
+
 
 /* 컨텐츠 */
 .contents {position: relative; margin-top: 104px; display: flex; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb;}

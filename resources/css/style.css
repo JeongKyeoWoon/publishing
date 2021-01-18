@@ -1,16 +1,45 @@
 .container {position: relative; width: 1200px; margin: 0 auto;}
 
 /* 헤더 */
-header {border-bottom: 1px solid #dbdbdb; position: sticky; top: 0; z-index: 1000; background-color: #fff;}
-.header {display: flex; padding: 30px;}
-.header .header_title {}
-.header .nav {}
-.header .nav ul {transform: translateY(50%); display: flex;}
-.header .nav ul li {padding-right: 20px; padding-left: 20px;}
+header {}
+header .header {position: fixed; top: 0; width: 100%; z-index: 1000; background-color: white; border-bottom: 1px solid #dbdbdb;}
+header .header .container {display: flex;}
+header .header .container .header_title {padding-left: 30px; line-height: 100px;}
+header .header .container .header_menu {}
+header .header .container .header_menu ul {display: flex; width: 500px; justify-content: space-between;}
+header .header .container .header_menu ul li {margin: 0 20px; line-height: 100px; position: relative;}
+/* 메뉴 밑줄 효과 */
+header .header .container .header_menu ul li::after {
+	content: '';
+	width: 0; height: 2px;
+	background-color: #25aad0;
+	transition: all .1s ease-out;
+	position: absolute; left: 0; bottom: 0;
+}
+header .header .container .header_menu ul li.active::after {width: 100%;}
+
+header .nav {position: fixed; top: 101px; width: 100%; z-index: 1000; background-color: white;}
+header .nav.off {display: none;}
+header .nav .container .nav_sub {margin-left: 370px; display: flex; padding: 15px 0;}
+/* header .nav .container .nav_sub ul {padding: 0 20px;} */
+header .nav .container .nav_sub ul li {padding: 10px 30px; text-align: center;}
+header .nav .container .nav_sub ul.active li a {color: #25aad0;} /* 네비 글자 색 변경 */
 
 /* 컨텐츠 */
-.contents {position: relative; display: flex; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb;}
+.contents {position: relative; margin-top: 104px; display: flex; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb;}
 .contents .cont_left {width: 250px;}
+.contents .cont_left .column .menu {}
+.contents .cont_left .column .menu > li > a {position: relative;}
+.contents .cont_left .column .menu > li > a::after {
+    content: '';
+	width: 0; height: 2px;
+	background-color: #25aad0;
+	transition: all .2s ease-out;
+	position: absolute; left: 0; bottom: 0;
+}
+.contents .cont_left .column .menu > li:hover > a::after {width: 100%;}
+.contents .cont_left .column .menu li ul {display: none;}
+.contents .cont_left .column .menu li:hover ul {display: block;}
 .contents .cont_center {min-height: 1300px; width: 700px; margin-right: 250px; flex: 1; border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb;}
 .contents .cont_right {position: absolute; top: 0; right: 0; width: 250px; height: 100%;}
 
